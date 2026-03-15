@@ -10,7 +10,7 @@ function LandingPage() {
       {/* HERO SECTION */}
       <div style={styles.hero}>
 
-        <div style={styles.left}>
+        <div style={styles.overlay}>
 
           <h1 style={styles.title}>
             Smart Healthcare Queue System
@@ -37,14 +37,6 @@ function LandingPage() {
             </button>
           </div>
 
-        </div>
-
-        <div style={styles.right}>
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png"
-            alt="doctor"
-            style={styles.image}
-          />
         </div>
 
       </div>
@@ -88,42 +80,43 @@ function LandingPage() {
   );
 }
 
-
 const styles = {
 
   container: {
-    padding: "60px",
     fontFamily: "Arial"
   },
 
   hero: {
+    height: "85vh",
+    backgroundImage: "url('/healthcare.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "80px"
+    justifyContent: "center",
+    alignItems: "center"
   },
 
-  left: {
-    width: "50%"
-  },
-
-  right: {
-    width: "40%"
+  overlay: {
+    background: "rgba(0,0,0,0.6)",
+    padding: "50px",
+    borderRadius: "10px",
+    textAlign: "center",
+    color: "white"
   },
 
   title: {
-    fontSize: "42px",
+    fontSize: "46px",
     marginBottom: "20px"
   },
 
   subtitle: {
     fontSize: "18px",
-    color: "#555",
     marginBottom: "30px"
   },
 
   buttons: {
     display: "flex",
+    justifyContent: "center",
     gap: "20px"
   },
 
@@ -133,7 +126,8 @@ const styles = {
     color: "white",
     border: "none",
     borderRadius: "6px",
-    cursor: "pointer"
+    cursor: "pointer",
+    fontSize: "16px"
   },
 
   secondaryBtn: {
@@ -141,30 +135,27 @@ const styles = {
     background: "white",
     border: "2px solid #0d6efd",
     borderRadius: "6px",
-    cursor: "pointer"
-  },
-
-  image: {
-    width: "100%"
+    cursor: "pointer",
+    fontSize: "16px"
   },
 
   features: {
     textAlign: "center",
-    marginBottom: "80px"
+    padding: "70px"
   },
 
   cardContainer: {
     display: "flex",
     justifyContent: "center",
     gap: "30px",
-    marginTop: "30px"
+    marginTop: "40px"
   },
 
   card: {
     width: "250px",
-    padding: "20px",
+    padding: "25px",
     borderRadius: "10px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+    boxShadow: "0 4px 15px rgba(0,0,0,0.1)"
   },
 
   footer: {
