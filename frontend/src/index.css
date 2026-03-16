@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Hero animation */
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Card pop animation */
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Button hover animation */
+
+button:hover {
+  transform: scale(1.07);
+}

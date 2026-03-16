@@ -1,15 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/DashboardPage";
+import BookAppointmentPage from "./pages/BookAppointmentPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
 
+      {/* Navbar visible on all pages */}
       <Navbar />
 
       <Routes>
@@ -22,9 +25,11 @@ function App() {
 
         <Route path="/dashboard" element={<DashboardPage />} />
 
+        <Route path="/book" element={<BookAppointmentPage />} />
+
       </Routes>
 
-    </BrowserRouter>
+    </Router>
   );
 }
 

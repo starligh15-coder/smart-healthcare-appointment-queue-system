@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
-
-  const navigate = useNavigate();
 
   return (
 
@@ -10,20 +8,34 @@ function Navbar() {
 
       <div style={styles.left}>
 
-        <div style={styles.link} onClick={() => navigate("/")}>
-          🏠 Home
+        <div style={styles.logo}>
+          HealthQueue
+        </div>
+
+        <NavLink
+          to="/"
+          style={({ isActive }) =>
+            isActive ? { ...styles.link, ...styles.active } : styles.link
+          }
+        >
+          Home
+        </NavLink>
+
+        <NavLink
+          to="/book"
+          style={({ isActive }) =>
+            isActive ? { ...styles.link, ...styles.active } : styles.link
+          }
+        >
+          Book Appointment
+        </NavLink>
+
+        <div style={styles.link}>
+          Emergency Check
         </div>
 
         <div style={styles.link}>
-          📅 Book Appointment
-        </div>
-
-        <div style={styles.link}>
-          ⚠ Emergency Check
-        </div>
-
-        <div style={styles.link}>
-          🏥 Hospitals
+          Hospitals
         </div>
 
       </div>
@@ -31,25 +43,26 @@ function Navbar() {
 
       <div style={styles.right}>
 
-        <button
+        <NavLink
+          to="/login"
           style={styles.login}
-          onClick={() => navigate("/login")}
         >
           Login
-        </button>
+        </NavLink>
 
-        <button
+        <NavLink
+          to="/dashboard"
           style={styles.dashboard}
-          onClick={() => navigate("/dashboard")}
         >
           Dashboard
-        </button>
+        </NavLink>
 
       </div>
 
     </div>
 
-  );
+  )
+
 }
 
 
@@ -59,22 +72,37 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "15px 40px",
-    background: "#f8fbfc",
-    borderBottom: "1px solid #e0e0e0",
-    fontFamily: "Segoe UI"
+    padding: "18px 60px",
+    background: "white",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+    position: "sticky",
+    top: 0,
+    zIndex: "1000"
   },
 
   left: {
     display: "flex",
-    gap: "30px",
-    alignItems: "center"
+    alignItems: "center",
+    gap: "25px"
+  },
+
+  logo: {
+    fontWeight: "700",
+    fontSize: "20px",
+    color: "#1da1b9"
   },
 
   link: {
-    cursor: "pointer",
-    color: "#2b6f82",
-    fontWeight: "500"
+    textDecoration: "none",
+    color: "#34495e",
+    fontWeight: "500",
+    padding: "8px 14px",
+    borderRadius: "8px"
+  },
+
+  active: {
+    background: "#e6f7fb",
+    color: "#1da1b9"
   },
 
   right: {
@@ -83,22 +111,23 @@ const styles = {
   },
 
   login: {
+    textDecoration: "none",
     padding: "8px 18px",
     border: "1px solid #ccc",
     background: "white",
     borderRadius: "10px",
-    cursor: "pointer"
+    color: "#333"
   },
 
   dashboard: {
+    textDecoration: "none",
     padding: "9px 20px",
     background: "#1da1b9",
     border: "none",
     color: "white",
-    borderRadius: "10px",
-    cursor: "pointer"
+    borderRadius: "10px"
   }
 
-};
+}
 
 export default Navbar;
